@@ -8,7 +8,7 @@ let user = require("./controllers/usercontroller");
 let calculator = require("./controllers/calculatorcontroller")
 
 sequelize.sync();
-
+app.use(require('./middleware/header'));
 app.use(express.json());
 
 app.use('/user', user);
