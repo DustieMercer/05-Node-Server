@@ -27,10 +27,42 @@ function postJournal() {
 }
     
     /* *************************
-     *** UPDATE JOURNAL ***
+     *** UPDATE JOURNAL ***=========================> I'M HERE.....
     ************************** */
     function editJournal(postId) {
-     console.log('editJournal Function Called')
+    console.log(postId)
+    const fetch_url = `http://localhost:3000/journal/update/${postId}`
+    const accessToken = localStorage.getItem('SessionToken')
+
+    let card = document.getElementById(postId)
+    let input = document.createElement('input')
+
+    if (card.childNodes.length < 2) {
+        card.appendChild(input)
+        input.setAttribute('type', 'text')
+        input.setAttribute('id','updateEntry')
+        input.setAttribute('placeholder', 'Edit your journal entry')
+    } else {
+        let updated = document.getElementById('updatedEntry').value
+        let updateEntry = {journal: {entry:updated}};
+        const response = fetch(fetch_url, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization':accessToken
+            },
+            body: JSON.stringify(updateEntry)
+        })
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            console.log(data)
+            displayMine();
+        })
+        
+        card.removeChild(card.lastChild)
+    }
     }
     
     
