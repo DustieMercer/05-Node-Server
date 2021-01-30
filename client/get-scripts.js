@@ -73,7 +73,11 @@ function displayMine() {
 
             editBtn.setAttribute('class', 'btn btn-dark editBtn')
             editBtn.setAttribute('type', 'button')
-            editBtn.setAttribute('onclick', `deleteJournal(${current.id})`)
+            editBtn.setAttribute('onclick', `editJournal(${current.id})`)
+
+            deleteBtn.setAttribute('class', 'btn btn-dark editBtn')
+            deleteBtn.setAttribute('type', 'button')
+            deleteBtn.setAttribute('onclick', `deleteJournal(${current.id})`)
 
             header.textContent = title
             subtitle.textContent = date

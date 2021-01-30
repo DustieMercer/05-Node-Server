@@ -27,7 +27,7 @@ function postJournal() {
 }
     
     /* *************************
-     *** UPDATE JOURNAL ***=========================> I'M HERE.....
+     *** UPDATE JOURNAL ***
     ************************** */
     function editJournal(postId) {
     console.log(postId)
@@ -40,7 +40,7 @@ function postJournal() {
     if (card.childNodes.length < 2) {
         card.appendChild(input)
         input.setAttribute('type', 'text')
-        input.setAttribute('id','updateEntry')
+        input.setAttribute('id','updatedEntry')
         input.setAttribute('placeholder', 'Edit your journal entry')
     } else {
         let updated = document.getElementById('updatedEntry').value
